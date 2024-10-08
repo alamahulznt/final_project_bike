@@ -35,15 +35,15 @@ For further information about the dataset, such as its background, characteristi
 
 *Note: Steps 1 to 3 are in the dicoding-collection-exercise, and step 4 is in the dashboard.*
 
-## 3. Getting Started with Proyek_Analisis_Data_Wildan_Sibil_Danillah_Safri.ipynb
+## 3. Getting Started with Proyek_Analisis_Data_[Bike_Sharing_Dataset] (4).ipynb
 1. Download this project.
-2. Open your favorite IDE like Jupyter Notebook or Google Colaboratory (I am using Google Colab here).
+2. Open your favorite IDE like Jupyter Notebook or Google Colaboratory (I am using Google Colab).
 3. Create a New Notebook.
 4. Upload and select the file with the .ipynb extension.
 5. Connect to the hosted runtime.
 6. Lastly, run the code cells.
 
-## 4. Running the Dashboard (dashboard/dashboard.py)
+## 4. Running Streamlit the Dashboard (dashboard/dashboard.py)
 1. Download this project.
 2. Install the Streamlit in your terminal or command prompt using pip install streamlit. Install another libraries like pandas, numpy, scipy, matplotlib, and seaborn if you haven't.
 3. Please note, don't move the csv file because it acts a data source. keep it in one folder as dashboard.py
