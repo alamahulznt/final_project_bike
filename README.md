@@ -15,6 +15,7 @@ For further information about the dataset, such as its background, characteristi
     | └───Download.jpeg
     ├───Proyek Analisis Data : [Bike Sharing Dataset] (4).ipynb
     ├───README.md
+    ├───link streamlit cloud.txt
     └───requirements.txt
 
 ## 2. Project Work Cycle
