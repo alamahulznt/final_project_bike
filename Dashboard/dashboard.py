@@ -174,59 +174,62 @@ with col3:
 # Membuat jumlah penyewaan berdasarkan season
 st.subheader('Seasonly Rentals')
 
-fig, ax = plt.subplots(figsize=(16, 8))
+seasonal_usage = day_df.groupby('season')[['registered', 'casual']].sum().reset_index()
 
-sns.barplot(
-    x='season',
-    y='registered',
-    data=season_rent_df,
+# Setup judul aplikasi Streamlit
+st.title('Jumlah Penyewaan Sepeda Berdasarkan Musim')
+
+# Plotting menggunakan Matplotlib
+plt.figure(figsize=(10, 6))
+
+# Membuat bar plot untuk registered
+plt.bar(
+    seasonal_usage['season'],
+    seasonal_usage['registered'],
     label='Registered',
-    color='tab:blue',
-    ax=ax
+    color='tab:blue'
 )
 
-sns.barplot(
-    x='season',
-    y='casual',
-    data=season_rent_df,
+# Membuat bar plot untuk casual
+plt.bar(
+    seasonal_usage['season'],
+    seasonal_usage['casual'],
     label='Casual',
     color='tab:orange',
-    ax=ax
+    bottom=seasonal_usage['registered']  # Untuk menumpuk bar casual di atas registered
 )
 
-for index, row in season_rent_df.iterrows():
-    ax.text(index, row['registered'], str(row['registered']), ha='center', va='bottom', fontsize=12)
-    ax.text(index, row['casual'], str(row['casual']), ha='center', va='bottom', fontsize=12)
+# Menambahkan label dan judul
+plt.xlabel('Musim')
+plt.ylabel('Jumlah Pengguna')
+plt.title('Jumlah Penyewaan Sepeda Berdasarkan Musim')
+plt.legend()
 
-ax.set_xlabel(None)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20, rotation=0)
-ax.tick_params(axis='y', labelsize=15)
-ax.legend()
-st.pyplot(fig)
+# Tampilkan plot dengan Streamlit
+st.pyplot(plt)
 
 # Membuah jumlah penyewaan berdasarkan kondisi cuaca
-st.subheader('Weatherly Rentals')
+st.subheader('Jumlah Pengguna Sepeda berdasarkan Kondisi Cuaca')
 
-fig, ax = plt.subplots(figsize=(16, 8))
-
-colors=["tab:blue", "tab:orange", "tab:green"]
+# Membuat plot
+fig, ax = plt.subplots(figsize=(10, 6))
 
 sns.barplot(
-    x=weather_rent_df.index,
-    y=weather_rent_df['count'],
-    palette=colors,
+    x='weather_cond',
+    y='count',
+    data=day_df,
     ax=ax
 )
 
-for index, row in enumerate(weather_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
+# Menambahkan judul dan label sumbu
+ax.set_title('Jumlah Pengguna Sepeda berdasarkan Kondisi Cuaca', fontsize=16)
+ax.set_xlabel('Kondisi Cuaca', fontsize=14)
+ax.set_ylabel('Jumlah Pengguna Sepeda', fontsize=14)
 
-ax.set_xlabel(None)
-ax.set_ylabel(None)
-ax.tick_params(axis='x', labelsize=20)
-ax.tick_params(axis='y', labelsize=15)
+# Menampilkan plot di Streamlit
 st.pyplot(fig)
+
+
 
 st.caption('Copyright (c) Alamah Ulzanati H 2024')
 
