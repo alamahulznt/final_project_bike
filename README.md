@@ -13,7 +13,7 @@ For further information about the dataset, such as its background, characteristi
     | ├───dashboard.py
     | ├───day.csv
     | └───Download.jpeg
-    ├───Proyek Analisis Data : [Bike Sharing Dataset].ipynb
+    ├───Proyek Analisis Data : [Bike Sharing Dataset] (2).ipynb
     ├───README.md
     └───requirements.txt
 
@@ -44,4 +44,6 @@ For further information about the dataset, such as its background, characteristi
 
 ## 4. Running the Dashboard (dashboard/dashboard.py)
 1. Download this project.
-2. Install Streamlit in your terminal or command prompt using:  
+2. Install the Streamlit in your terminal or command prompt using pip install streamlit. Install another libraries like pandas, numpy, scipy, matplotlib, and seaborn if you haven't.
+3. Please note, don't move the csv file because it acts a data source. keep it in one folder as dashboard.py
+4. Open your VSCode and run the file by clicking the terminal and write it streamlit run dashboard.py.
