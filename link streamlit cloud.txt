@@ -1,0 +1,2 @@
+#Berikut merupakan link streamlit cloud :
+#https://finalprojectbike-banji2dhx5khckgmsxuygp.streamlit.app/
