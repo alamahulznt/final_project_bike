@@ -171,24 +171,6 @@ with col3:
     daily_rent_total = daily_rent_df['count'].sum()
     st.metric('Total User', value= daily_rent_total)
 
-# Membuat jumlah penyewaan bulanan
-st.subheader('Monthly Rentals')
-fig, ax = plt.subplots(figsize=(24, 8))
-ax.plot(
-    monthly_rent_df.index,
-    monthly_rent_df['count'],
-    marker='o',
-    linewidth=2,
-    color='tab:blue'
-)
-
-for index, row in enumerate(monthly_rent_df['count']):
-    ax.text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-ax.tick_params(axis='x', labelsize=25, rotation=45)
-ax.tick_params(axis='y', labelsize=20)
-st.pyplot(fig)
-
 # Membuat jumlah penyewaan berdasarkan season
 st.subheader('Seasonly Rentals')
 
@@ -246,64 +228,5 @@ ax.tick_params(axis='x', labelsize=20)
 ax.tick_params(axis='y', labelsize=15)
 st.pyplot(fig)
 
-# Membuat jumlah penyewaan berdasarkan weekday, working dan holiday
-st.subheader('Weekday, Workingday, and Holiday Rentals')
-
-fig, axes = plt.subplots(nrows=3, ncols=1, figsize=(15,10))
-
-colors1=["tab:blue", "tab:orange"]
-colors2=["tab:blue", "tab:orange"]
-colors3=["tab:blue", "tab:orange", "tab:green", "tab:red", "tab:purple", "tab:brown", "tab:pink"]
-
-# Berdasarkan workingday
-sns.barplot(
-    x='workingday',
-    y='count',
-    data=workingday_rent_df,
-    palette=colors1,
-    ax=axes[0])
-
-for index, row in enumerate(workingday_rent_df['count']):
-    axes[0].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[0].set_title('Number of Rents based on Working Day')
-axes[0].set_ylabel(None)
-axes[0].tick_params(axis='x', labelsize=15)
-axes[0].tick_params(axis='y', labelsize=10)
-
-# Berdasarkan holiday
-sns.barplot(
-  x='holiday',
-  y='count',
-  data=holiday_rent_df,
-  palette=colors2,
-  ax=axes[1])
-
-for index, row in enumerate(holiday_rent_df['count']):
-    axes[1].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[1].set_title('Number of Rents based on Holiday')
-axes[1].set_ylabel(None)
-axes[1].tick_params(axis='x', labelsize=15)
-axes[1].tick_params(axis='y', labelsize=10)
-
-# Berdasarkan weekday
-sns.barplot(
-  x='weekday',
-  y='count',
-  data=weekday_rent_df,
-  palette=colors3,
-  ax=axes[2])
-
-for index, row in enumerate(weekday_rent_df['count']):
-    axes[2].text(index, row + 1, str(row), ha='center', va='bottom', fontsize=12)
-
-axes[2].set_title('Number of Rents based on Weekday')
-axes[2].set_ylabel(None)
-axes[2].tick_params(axis='x', labelsize=15)
-axes[2].tick_params(axis='y', labelsize=10)
-
-plt.tight_layout()
-st.pyplot(fig)
-
 st.caption('Copyright (c) Alamah Ulzanati H 2024')
+
